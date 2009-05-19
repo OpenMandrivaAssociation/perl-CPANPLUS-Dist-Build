@@ -1,6 +1,6 @@
 
 %define realname   CPANPLUS-Dist-Build
-%define version    0.28
+%define version    0.30
 %define release    %mkrel 1
 
 Name:       perl-%{realname}
