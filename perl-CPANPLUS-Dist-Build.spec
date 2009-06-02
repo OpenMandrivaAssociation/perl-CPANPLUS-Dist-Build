@@ -1,18 +1,16 @@
+%define upstream_name    CPANPLUS-Dist-Build
+%define upstream_version 0.32
 
-%define realname   CPANPLUS-Dist-Build
-%define version    0.30
-%define release    %mkrel 1
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
+License:    GPL+ or Artistic
 Group:      Development/Perl
 Summary:    Constants for CPANPLUS::Dist::Build
-Source:     http://www.cpan.org/modules/by-module/CPANPLUS/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/CPANPLUS/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(CPANPLUS)
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(File::Spec)
@@ -25,8 +23,8 @@ BuildRequires: perl(Module::Pluggable)
 BuildRequires: perl(Params::Check)
 BuildRequires: perl(Test::Harness)
 BuildRequires: perl(Test::More)
-
 BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 'CPANPLUS::Dist::Build' is a distribution class for 'Module::Build' related
@@ -38,9 +36,8 @@ functions transparently as a plug-in to 'CPANPLUS' and will just 'Do The
 Right Thing' when it's loaded.
 
 
-
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version} 
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
