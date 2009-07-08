@@ -9,6 +9,7 @@ Group:      Development/Perl
 Summary:    Constants for CPANPLUS::Dist::Build
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source:     http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
+BuildRequires: perl-devel
 BuildRequires: perl(CPANPLUS)
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(File::Spec)
