@@ -19,9 +19,12 @@ BuildRequires: perl(Module::Build)
 BuildRequires: perl(Module::Load)
 BuildRequires: perl(Module::Load::Conditional)
 BuildRequires: perl(Module::Pluggable)
+BuildRequires: perl(Object::Accessor)
 BuildRequires: perl(Params::Check)
 BuildRequires: perl(Test::Harness)
 BuildRequires: perl(Test::More)
+# versionning the corresponding virtual package is not enough
+BuildRequires: perl-Module-Load-Conditional
 BuildArch: noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}
 
