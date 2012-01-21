@@ -27,8 +27,6 @@ BuildRequires: perl(Test::More)
 BuildRequires: perl-Module-Load-Conditional
 BuildArch: noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}
-# temporary dep due to the perl-5.14 bump
-BuildRequires:  perl-List-MoreUtils >= 0.320.0-4
 
 %description
 'CPANPLUS::Dist::Build' is a distribution class for 'Module::Build' related
