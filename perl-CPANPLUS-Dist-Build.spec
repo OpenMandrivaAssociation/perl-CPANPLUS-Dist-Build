@@ -1,14 +1,14 @@
 %define upstream_name       CPANPLUS-Dist-Build
-%define upstream_version 0.56
+%define upstream_version 0.68
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 4
+Release:    %mkrel 1
 License:    GPL or Artistic
 Group:      Development/Perl
 Summary:    Constants for CPANPLUS::Dist::Build
 Url:        http://search.cpan.org/dist/%{upstream_name}
-Source:     http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
+Source:     http://search.cpan.org/CPAN/authors/id/B/BI/BINGOS/%{upstream_name}-%{upstream_version}.tar.gz
 BuildRequires: perl-devel
 BuildRequires: perl(CPANPLUS)
 BuildRequires: perl(ExtUtils::MakeMaker)
@@ -62,6 +62,9 @@ rm -rf %buildroot
 
 
 %changelog
+* Sat Dec 29 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.680.0-1
+- new version
+
 * Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 0.560.0-4mdv2012.0
 + Revision: 765117
 - rebuilt for perl-5.14.2
