@@ -1,32 +1,31 @@
-%define upstream_name       CPANPLUS-Dist-Build
-%define upstream_version 0.68
+%define	modname	CPANPLUS-Dist-Build
+%define modver	0.68
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
-License:    GPL or Artistic
-Group:      Development/Perl
-Summary:    Constants for CPANPLUS::Dist::Build
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source:     http://search.cpan.org/CPAN/authors/id/B/BI/BINGOS/%{upstream_name}-%{upstream_version}.tar.gz
-BuildRequires: perl-devel
-BuildRequires: perl(CPANPLUS)
-BuildRequires: perl(ExtUtils::MakeMaker)
-BuildRequires: perl(File::Spec)
-BuildRequires: perl(IPC::Cmd)
-BuildRequires: perl(Locale::Maketext::Simple)
-BuildRequires: perl(Module::Build)
-BuildRequires: perl(Module::Load)
-BuildRequires: perl(Module::Load::Conditional)
-BuildRequires: perl(Module::Pluggable)
-BuildRequires: perl(Object::Accessor)
-BuildRequires: perl(Params::Check)
-BuildRequires: perl(Test::Harness)
-BuildRequires: perl(Test::More)
+Name:		perl-%{modname}
+Version:	%{perl_convert_version %{modver}}
+Release:	1
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Summary:	Constants for CPANPLUS::Dist::Build
+Url:		http://search.cpan.org/dist/%{modname}
+Source0:	http://search.cpan.org/CPAN/authors/id/B/BI/BINGOS/%{modname}-%{modver}.tar.gz
+BuildRequires:	perl-devel
+BuildRequires:	perl(CPANPLUS)
+BuildRequires:	perl(ExtUtils::MakeMaker)
+BuildRequires:	perl(File::Spec)
+BuildRequires:	perl(IPC::Cmd)
+BuildRequires:	perl(Locale::Maketext::Simple)
+BuildRequires:	perl(Module::Build)
+BuildRequires:	perl(Module::Load)
+BuildRequires:	perl(Module::Load::Conditional)
+BuildRequires:	perl(Module::Pluggable)
+BuildRequires:	perl(Object::Accessor)
+BuildRequires:	perl(Params::Check)
+BuildRequires:	perl(Test::Harness)
+BuildRequires:	perl(Test::More)
 # versionning the corresponding virtual package is not enough
-BuildRequires: perl-Module-Load-Conditional
-BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+BuildRequires:	perl-Module-Load-Conditional
+BuildArch:	noarch
 
 %description
 'CPANPLUS::Dist::Build' is a distribution class for 'Module::Build' related
@@ -38,31 +37,26 @@ functions transparently as a plug-in to 'CPANPLUS' and will just 'Do The
 Right Thing' when it's loaded.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version} 
+%setup -q -n %{modname}-%{modver} 
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README LICENSE
 %{_mandir}/man3/*
 %{perl_vendorlib}/CPANPLUS
 
-
 %changelog
 * Sat Dec 29 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.680.0-1
+- cleanups
 - new version
 
 * Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 0.560.0-4mdv2012.0
