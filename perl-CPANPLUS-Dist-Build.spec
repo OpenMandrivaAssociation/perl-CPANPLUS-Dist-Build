@@ -1,14 +1,12 @@
 %define	modname	CPANPLUS-Dist-Build
-%define modver	0.68
-
 Summary:	Constants for CPANPLUS::Dist::Build
 Name:		perl-%{modname}
-Version:	%{perl_convert_version %{modver}}
-Release:	13
+Version:	0.68
+Release:	14
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{modname}
-Source0:	http://search.cpan.org/CPAN/authors/id/B/BI/BINGOS/%{modname}-%{modver}.tar.gz
+Url:		https://metacpan.org/dist/%{modname}
+Source0:	http://search.cpan.org/CPAN/authors/id/B/BI/BINGOS/%{modname}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -38,7 +36,7 @@ functions transparently as a plug-in to 'CPANPLUS' and will just 'Do The
 Right Thing' when it's loaded.
 
 %prep
-%setup -qn %{modname}-%{modver} 
+%setup -qn %{modname}-%{version} 
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
